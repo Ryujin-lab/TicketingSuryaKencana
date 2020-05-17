@@ -227,6 +227,7 @@
    </div>
 
    <?php endif; ?>
+   
    <div class = "modal" id = "modal">
       <div class = "modal-content">
          <h2 style="color:rgb(26, 100, 230)">LANJUTKAN KE HALAMAN PEMBAYARAN?</h2>

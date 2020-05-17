@@ -36,8 +36,8 @@ include "bis.php";
                   </div>
                </td>
                <td rowspan="3" style="width:50%; text-align:center; color:rgb(26,100, 230);">
-                  <h4>Harga pengiriman Paket</h3>
-                  <a style="font-size:30px" >RP. 120.000</a>
+                  <h4>Harga pengiriman /Paket</h3>
+                  <a style="font-size:30px" ><?=$paket?></a>
                </td>   
             </tr>
             <tr >
@@ -126,5 +126,14 @@ include "bis.php";
          </table>
          </form>
       </div>
+      <div class = "modal" id = "modal">
+         <div class = "modal-content">
+            <h2 style="color:rgb(26, 100, 230)">LANJUTKAN KE HALAMAN PEMBAYARAN?</h2>
+            <p style="color:orangered">*pastikan untuk mengecek kembali form pemesanan*</p>
+            <button onclick="closedoublecheck()" class = "lastconfirm" id = "cancel" name ="cancel" type="button">KEMBALI</button>
+            <button class = "lastconfirm" id = "lastconfirm" name ="lastconfirm" type="submit" form = "detailpemesanan">LANJUTKAN</button>
+         </div>
+      </div>
+
    </body>
 </html>

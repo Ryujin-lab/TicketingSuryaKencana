@@ -24,9 +24,8 @@
          <br>
          <br>
          <form>
-         <button type = "submit" class="trfbutton" >OK</button>
+         <button type = "submit" class="trfbutton" onclick="">OK</button>
          </form>
       </div>
-      
    </body>
 </html>

@@ -12,6 +12,8 @@ function randSeat($ket){
    return $seat;
 }
 
+$paket = 40000;
+
 $ditemukan = false;
 
 $bangku = array(randSeat($keterangan), randSeat($keterangan), randSeat($keterangan),randSeat($keterangan));
