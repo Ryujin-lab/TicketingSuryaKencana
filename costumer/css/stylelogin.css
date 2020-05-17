@@ -1,0 +1,61 @@
+@font-face {
+   font-family: helvetica;
+   src: url(/bootstrap/font/helvetica.ttf);
+}
+body{
+   font-family:  helvetica;
+}
+
+
+h2 {
+   text-align: center;
+   color:rgb(49, 49, 49)
+}
+
+input{
+   width: 90%;
+   padding:10px;
+   border: 1px solid rgb(50, 200, 250);
+   margin-bottom: 10px;
+}
+
+button{
+   color : white;
+   background-color:  rgb(50, 200, 250);
+   width:40%;
+   padding :5px;
+   border: 2px solid rgb(50, 200, 250);
+   border-radius : 5px;
+   padding: 1%;
+   font-size: 20px;
+   margin-bottom: 10px;
+   margin-left:30%;
+   margin-right: 30%;
+}  
+
+.login-button:hover{
+   background-color : rgb(218, 245, 255);
+   color: black;
+   transition-duration: 0.5s;
+}
+
+form{
+   width: 30%;
+   border: 3px solid rgb(50,200, 250);
+   margin: 0 auto;
+
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   padding:20px;
+
+   -ms-transform: translate(-50%, -50%);
+   transform: translate(-50%, -50%);
+
+   border-radius: 20px;
+   background-color :  rgb(206, 245, 255);
+}
+
+a {
+   text-align: center;
+}

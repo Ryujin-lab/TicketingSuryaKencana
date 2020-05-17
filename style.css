@@ -1,0 +1,78 @@
+@font-face {
+   font-family: helvetica;
+   src: url(/bootstrap/font/helvetica.ttf);
+}
+body{
+   font-family:  helvetica;
+   background-image: linear-gradient(rgb(179, 230, 247), white);
+}
+.center {
+   display: block;
+   margin-left: auto;
+   margin-right: auto;
+   margin-top: 8%;
+}
+h1, h2{
+   color: rgb(0, 107, 143);
+}
+
+div.container{
+   margin-top: 3%;
+   margin-bottom: 3%;
+   margin-left: 7%;
+   margin-right: 7%;
+   border: 2px solid rgb(50, 200, 250);
+   border-radius: 10px;
+   padding: 1%;
+   text-align: center;
+}
+
+button{
+   color : white;
+   width:40%;
+   float: left;
+   padding :5px;
+   border: 2px solid rgb(50, 200, 250);
+   border-radius : 5px;
+   padding: 1%;
+   font-size: 20px;
+}
+
+button.agen{
+   margin-left: 9%;
+   margin-right:auto;
+   float: left;
+   background-color : green;
+}
+
+button.costumer{
+   margin-right:9%;
+   width:40%;
+   float: right;
+   background-color : orangered;
+}
+
+button:hover{
+   background-color : rgb(218, 245, 255);
+   color: black;
+   transition-duration: 0.5s;
+}
+
+div.down{
+   margin-top:10%;
+   padding-top:1%;
+   width: auto;
+   border-top: 2px solid rgb(50, 200, 250);
+}
+
+.contact{
+   margin-left:15%;
+   float: left;
+
+}
+
+.aboutUs{
+   margin-right:15%;
+   float: right;
+   text-align: right;
+}

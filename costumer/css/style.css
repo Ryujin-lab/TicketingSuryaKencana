@@ -1,0 +1,590 @@
+@font-face {
+   font-family: helvetica;
+   src: url(/bootstrap/font/helvetica.ttf);
+}
+body{
+   font-family:  helvetica;
+   margin : 0 0 10px 0;
+   overflow-y:scroll;
+}
+
+object{
+   width : 100%;
+   max-height : 100%;
+   margin: 0;
+}
+
+.topnav{
+   overflow: hidden;
+   background-color: rgb(228, 228, 228);
+   margin-left: 0;
+   margin-right: 0;
+}
+
+.rightnav{
+   overflow: hidden;
+   float: right;
+}
+
+.rightnav a{
+   float : right;
+   display: block;
+   color: rgb(26, 100, 230);
+   padding : 10px 20px;
+   text-align: center;
+   text-decoration: none;
+   border: 1px solid rgb(26, 100, 230);
+   border-radius: 5px;
+   margin: 10px 8px;
+}
+
+.rightnav a:hover{
+   background-color : rgb(26, 100, 230);
+   color : white;
+   transition: 0.5s;
+}
+
+
+.topnav a{
+   float : left;
+   display: block;
+   color: rgb(26, 100, 230);
+   padding : 13px 20px;
+   text-align: center;
+   text-decoration: none;
+}
+
+.topnav a:hover{
+   background-color : rgb(26, 100, 230);
+   color : white;
+   transition: 0.5s;
+} 
+
+.topnav .active {
+   background-color : rgb(26, 100, 230);
+   color : white;
+   transition: 0.5s;
+}
+
+.layanan tr, .layanan td{
+   border: 1px solid rgb(26, 100, 230);
+   border-radius: 10px;
+   width: 50%;
+   padding : 20px;
+   text-align: center;
+   color: rgb(26, 100, 230);
+}
+
+.layanan{
+   margin-top: 1%;
+   width :100%;
+   border-spacing: 10px;
+}
+
+#center {
+   display: block;
+   margin-left: auto;
+   margin-right: auto;
+   width: 100px;
+}
+
+.dropdown{
+   width: 100%;
+   margin: 0;
+}
+
+.dp{
+   border : solid 1px rgb(26, 100, 230);
+   padding : 10px;
+   margin : 0px;
+   border-radius: 5px;
+   width: 90%;
+   cursor: pointer;
+   text-align: left;
+}
+
+.dp:hover{
+   background-color : rgb(132, 170, 235);
+   transition : 0.2s;
+}
+
+.button-dp {
+   border : 1px solid rgb(26, 100, 230);
+   background-color : rgb(112, 155, 230);
+   padding : 10px;
+   border-radius: 5px;
+   width: 80%;
+   box-sizing: border-box;
+}
+/* .search-result tr td{
+   border : 1px solid black;
+} */
+
+.button-dp:hover{
+   background-color : rgb(26, 100, 230);
+}
+
+.jadwal{
+   border : solid 1px rgb(26, 100, 230);
+   padding : 1%;
+   margin-left : 15%;
+   margin-right : 15%;
+   margin-top : 1%;
+   border-radius: 10px;
+   width : auto;
+   overflow: hidden;
+}
+
+.hidden-drop-asal{
+   position: absolute;
+   width: 15%;
+   background-color : white;
+   border : 1px solid rgb(26, 100, 230);
+   padding : 5px;
+   border-radius: 5px;
+   cursor: pointer;
+   display: none;
+}
+
+.opened {
+   display: block;
+   transform : translateY(0px);
+}
+
+.hidden-drop-asal a{
+   padding : 5px;
+   border-radius: 5px;
+   display: block;
+   border : 1px solid rgb(231, 241, 255);
+   margin-left: 0px;
+}
+
+.hidden-drop-asal a:hover{
+   background-color:rgb(195, 217, 255);
+}
+
+input[type=number]:hover::-webkit-inner-spin-button {  
+   width: 14px;
+   height: 30px;
+}
+
+.jadwal .bis-button{
+   border : 1px solid rgba(26, 101, 230, 0.191);
+   background-color : white;
+   width : 100%;
+   display : block;
+   margin-bottom: 10px;
+   border-radius: 5px;
+}
+.jadwal .bis-button:hover{
+   background-color : rgba(26, 101, 230, 0.198);
+}
+button div a{
+   color: rgb(26, 101, 230);
+   display: grid;
+   text-align: left;
+   border: 1px solid rgb(26, 100, 230);
+   width : 15%;
+   position: relative;
+   padding : 0.5%;
+   margin : 0.5%;
+}
+.bis_img{
+   width:85px;
+   float:left;
+   margin : 1%;
+   display: block;
+}
+
+table{
+   margin: 7px;
+}
+.bis-button tr td{
+   background-color : rgba(175, 204, 255, 0.212);
+   padding : 5px;
+   text-align: left;
+   border-radius: 5px;
+}
+
+.right{
+   float: right;
+   background-color:white;
+   padding : 1%;
+   margin-top : 4%;
+   margin-bottom : 4%;
+   margin-right: 4%;
+   border : 1px solid rgb(26, 100, 230);
+   border-radius: 5px;
+   color : rgb(26, 100, 230);
+}
+.dropdownseat .left{
+   background-color:white;
+   padding : 5%;
+   margin-top : 4%;
+   margin-bottom : 4%;
+   border : 1px solid rgb(26, 100, 230);
+   border-radius: 5px;
+   color : rgb(26, 100, 230);
+   width: 100% ;
+   display: block;
+   cursor: default;
+}
+
+.seatdropshow{   
+   
+}
+
+
+.seatdrop{
+   position: absolute;
+   width: 15%;
+   background-color : white;
+   border : 1px solid rgb(26, 100, 230);
+   padding : 5px;
+   border-radius: 5px;
+   cursor: pointer;
+   display: none;
+   transition: 1s;
+}
+
+.listseat{
+   font-size: 12px;
+   position: relative;
+   width : 20%;
+   padding : 2px;
+   float : left;
+   display : block;
+   border : 1px solid rgba(26, 101, 230, 0.322);
+   border-radius: 5px;
+   color : black;
+   text-align:  center;
+}
+
+.jumlah {
+   display: block;
+   float: right;
+}
+
+.penumpang {
+   padding : 5px;
+   margin : 0px;
+   width : 90%;
+   border-radius: 3px;
+   border : 1px solid rgba(26, 101, 230, 0.3);
+   text-align: center;
+}
+
+.num{
+   display: block;
+   width : 90%;
+   float: left;
+   border : 1px solid rgb(26, 100, 230);
+   cursor : default;   
+   padding : 3px;
+   text-align :center;
+   border-radius: 3px;
+   text-align: center;
+   user-select: none;
+}
+
+.num:hover{
+   background-color : rgba(26, 101, 230, 0.178)
+}
+.num:active{
+   background-color : rgba(26, 101, 230,0.3)
+}
+
+.jumlahPenumpang{
+   float: left;
+   padding : 3px;
+   margin : 3px;
+   text-align: left;
+   font-size:12px;
+}
+
+.oke{
+   float: left;
+   padding : 3px;
+   width : 40px;
+   height : 27px;
+   margin : 3px;
+   background-color : rgba(26, 101, 230, 0.383);
+   border : 1px solid rgb(26,100, 230);
+   border-radius:3px;
+}
+
+.inputpenumpang h2{
+   text-align: center;
+}
+
+.tiket{
+   border: 1px solid rgba(26, 101, 230, 0.5);
+   padding :1%;
+   margin : 1%;
+   border-radius: 10px;
+}
+
+.pelanggan {
+   border: 1px solid rgba(26, 101, 230, 0.3);
+   padding : 2%;
+   width: 95%;
+} 
+
+.pelanggan option {
+   padding: 5px;
+}
+
+.detail tr td{
+   /* border: 1px solid black; */
+}
+
+.detail tr .input{
+   /* border: 1px solid black; */
+   width: 40%;
+}
+
+
+.detail tr .label{
+   /* border: 1px solid black; */
+   width: 20%;
+}
+
+.pesantambahan{
+   padding : 5px;
+   margin : 10%;
+}
+
+.pesantambahan input{
+   height: 100%;
+   box-sizing: border-box;
+}
+
+.titik{
+   width : 1%;
+}
+
+.seats{
+   padding : 5px;
+}
+
+.seats a{
+   display: block;
+   float: left;
+   border : 1px solid rgba(26, 100, 230, 0.3);
+   padding: 1%;
+   width : 20%;
+   border-radius:5px;
+   text-align: center;
+
+}
+
+.seats .listseat{
+   cursor: pointer;
+   user-select: none;
+   font-size: 12px;
+}
+
+.seats .listseat:hover{
+   background-color :rgba(26, 100, 230, 0.2);
+}
+.seats .listseat:active{
+   background-color :rgba(26, 100, 230, 0.3);
+}
+
+.seats .listseatdisable{
+   cursor: not-allowed;
+   user-select: none;
+   font-size: 12px;
+}
+
+.buttonconfirm{
+   user-select: none;
+   float: right;
+   margin : 10px;
+   background-color : rgba(26, 100, 230, 0.2);
+   border : 1px solid rgb(26, 100, 230, 0.3);
+   padding : 10px;
+   border-radius: 5px;
+   font-size: 16px;
+}
+
+.buttonconfirm:hover {
+   background-color : rgba(26, 100, 230, 0.3);
+}
+
+.buttonconfirm:active {
+   background-color : rgba(26, 100, 230, 0.4);
+}
+.detailall {
+   border-collapse: collapse;
+   width : 97%;
+}
+.detailall tr th{
+   border : 1px solid rgb(26, 101, 230);
+   background-color : rgba(26, 101, 230, 0.2);
+   padding : 10px;
+   font-size:14px;
+}
+
+.detailall tr td{
+   border : 1px solid rgb(26, 101, 230);
+}
+
+.konfirmasiinput{
+   border : none;
+   width : 100%;
+   font-size: 14px;
+   pointer-events: none;
+}
+
+.submitall{
+   background-color :rgb(26, 101, 230, 0.7);
+   padding : 1%;
+   width : 30%;
+   margin-left: auto;
+   margin-right: 35%;
+   margin-left: 35%;
+   border : 1px solid rgb(26,101,230);
+   border-radius: 5px;
+}
+
+.konfirmasi label{
+   display: inline-block;
+   border: 1px solid rgba(26, 101, 230, 0.616);
+   padding : 2px;
+   border-radius: 3px;
+   background-color : rgba(26,100, 230, 0.3)
+}
+
+.find tr td{
+   border : 1px solid black;
+}
+
+.modal{
+  display: none;
+  position: fixed;
+  z-index: 1; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4);
+  -webkit-animation-name: fadeIn; 
+  -webkit-animation-duration: 0.4s;
+  animation-name: fadeIn;
+  animation-duration: 0.4s
+}
+
+.modal-content {
+   position: fixed;
+   bottom: 0;
+   border-radius:5px; 
+   border: 1px solid rgb(26, 100, 230);
+   background-color: #fefefe;
+   width: 60%;
+   margin: auto 20% auto 20%;
+   -webkit-animation-name: slideIn;
+   -webkit-animation-duration: 0.4s;
+   animation-name: slideIn;
+   animation-duration: 0.4s;
+   text-align:center;
+   padding-bottom: 10px;
+}
+
+.lastconfirm{
+   padding : 10px;
+   width : 20%;
+   border: none;
+}
+
+#lastconfirm{
+   border: 1px solid rgb(26, 100, 230);
+   background-color : rgba(26, 101, 230, 0.5);
+}
+#lastconfirm:hover{
+   background-color : rgb(26,100, 230);
+}
+
+#cancel{
+   border : 1px solid orangered;
+   background-color : rgba(255, 68, 0, 0.5);
+}
+#cancel:hover{
+   background-color : orangered;
+}
+
+@-webkit-keyframes slideIn {
+   from {bottom: -300px; opacity: 0} 
+   to {bottom: 0; opacity: 1}
+ }
+ 
+ @keyframes slideIn {
+   from {bottom: -300px; opacity: 0}
+   to {bottom: 0; opacity: 1}
+ }
+ 
+ @-webkit-keyframes fadeIn {
+   from {opacity: 0} 
+   to {opacity: 1}
+ }
+ 
+ @keyframes fadeIn {
+   from {opacity: 0} 
+   to {opacity: 1}
+ }
+/* hide number input */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.uang {
+   display: inline-block;
+   border : 1px solid rgba(26, 101, 230, 0.5);
+   padding : 10px 10% 10px 10%;
+   font-size: 30px;
+}
+
+.trfbutton{
+   display: inline-block;
+   background-color :rgb(26, 100, 230,0.7);
+   width : 20%;
+   border: 1px solid rgb(26,100,230);
+   margin : 2%;
+   padding : 1%;
+   border-radius: 5px;
+}
+
+.trfbutton:hover{
+   background-color :rgb(26, 100, 230);
+}
+
+.trfbutton:active{
+   background-color :rgba(26, 100, 230, 0.8);
+}
+
+.pengirimanpaket tr td{
+   /* border : 1px solid black; */
+}
+
+.pengirimanpaket{
+   margin : 0;
+   width:100%;
+}
+
+.ptiket tr td{
+   /* border : 1px solid black; */
+   padding : 3px;
+}
+
+.tittle{
+   width: 15%;
+}
