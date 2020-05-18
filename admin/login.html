@@ -9,7 +9,7 @@
    </head>
    <body>
       <div>
-         <form class="login-form" method="GET">
+         <form class="login-form" method="POST">
             <h2>Login Sebagai Agen Bus</h2>
             <label for="email">
                Email:
@@ -20,7 +20,8 @@
                Password:
             </label><br>
             <input type="password" name = "password" id = "password" required><br>
-            <button type="submit" class="login-button" >Login</button>
+            <button type="submit" formaction="indeks.php" 
+            class="login-button" >Login</button>
          </form>
       </div>
    </body>

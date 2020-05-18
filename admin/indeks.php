@@ -52,7 +52,7 @@
          }
 
          else if ($halaman == "manajemen-pelanggan"){
-            include 'manajemenbus.php';
+            include 'manajemenpelanggan.php';
             echo'
             <script>
                document.getElementById("pelanggan").className = "active";
