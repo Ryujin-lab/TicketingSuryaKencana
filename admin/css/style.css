@@ -1,0 +1,129 @@
+@font-face {
+   font-family: helvetica;
+   src: url(/bootstrap/font/helvetica.ttf);
+}
+body{
+   font-family:  helvetica;
+   margin : 0 0 10px 0;
+   overflow-y:scroll;
+}
+
+object{
+   width : 100%;
+   max-height : 100%;
+   margin: 0;
+}
+
+.topnav{
+   overflow: hidden;
+   background-color: rgb(228, 228, 228);
+   margin-left: 0;
+   margin-right: 0;
+}
+
+.rightnav{
+   overflow: hidden;
+   float: right;
+}
+
+.rightnav a{
+   float : right;
+   display: block;
+   color: rgb(26, 100, 230);
+   padding : 10px 20px;
+   text-align: center;
+   text-decoration: none;
+   border: 1px solid rgb(26, 100, 230);
+   border-radius: 5px;
+   margin: 10px 8px;
+}
+
+.rightnav a:hover{
+   background-color : rgb(26, 100, 230);
+   color : white;
+   transition: 0.5s;
+}
+
+
+.topnav a{
+   float : left;
+   display: block;
+   color: rgb(26, 100, 230);
+   padding : 13px 20px;
+   text-align: center;
+   text-decoration: none;
+}
+
+.topnav a:hover{
+   background-color : rgb(26, 100, 230);
+   color : white;
+   transition: 0.5s;
+} 
+
+.topnav .active {
+   background-color : rgb(26, 100, 230);
+   color : white;
+   transition: 0.5s;
+}
+
+.jadwal{
+   border : solid 1px rgb(26, 100, 230);
+   padding : 1%;
+   margin-left : 1%;
+   margin-right : 1%;
+   margin-top : 1%;
+   border-radius: 10px;
+   width : auto;
+   overflow: hidden;
+}
+
+.tabelbis{
+   width: 100%;
+   border-collapse: collapse;
+   text-align:center;
+}
+
+.tabelbis tr th{
+   border : solid 1px rgb(26, 100, 230);
+   padding : 10px;
+   background-color : rgb(26, 100, 230, 0.5)
+}
+
+.tabelbis tr td{
+   border : solid 1px rgb(26, 100, 230, 0.2);
+   padding : 5px;
+}
+
+.addbutton {
+   width: 20%;
+   padding : 10px;
+   border : 1px solid rgb(26, 100, 230);
+}
+
+.addbutton:hover{
+   background-color : rgb(26, 100, 230, 0.2);
+}
+
+.addbutton:active{
+   background-color : rgb(26, 100, 230, 0.3);
+}
+
+.hapus{
+   background-color : orangered;
+   border : 1px solid rgba(255, 68, 0, 0.5);
+   padding : 5px;
+}
+
+.ele{
+   padding : 5px;
+}
+
+input[type=number] {
+   -moz-appearance: textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<?php 
+   include "bis.php";
+?>
 <html>
    <head>
       <link rel="stylesheet" href= "css/style.css">

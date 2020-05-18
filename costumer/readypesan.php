@@ -11,13 +11,16 @@
    <?php if (isset($_GET["pesan"]) || isset($_GET["oke"]) || isset($_GET[""])){ ?>
    <div class="jadwal">
       <h2 style ="color:rgb(26, 100, 230); text-align:center;">Pemesanan Tiket</h2>
-      <img style = "margin-top:0px"class="bis_img" src="../img/bus/<?=$_GET['selectedBis'];?>.png">
       <table class="search-result">
          <tr>
-            <td style="border:none; background-color:rgba(0, 0, 0, 0);">
+            <td rowspan="3">
+               <img style = "margin-top:0px"class="bis_img" src="../img/bus/<?=$_GET['selectedBis'];?>.png">
+            </td>
+            <td width="10%" rowspan="3"></td>
+            <td>
                Kota asal
             </td>
-            <td style="border:none; background-color:rgba(0, 0, 0, 0);">
+            <td>
             :
             </td>
             <td >
@@ -25,10 +28,10 @@
             </td>
          </tr>
          <tr>
-            <td style="border:none; background-color:rgba(0, 0, 0, 0);">
+            <td>
                Kota tujuan
             </td>
-            <td style="border:none; background-color:rgba(0, 0, 0, 0);">
+            <td>
             :
             </td>
             <td>
@@ -36,10 +39,10 @@
             </td>
          </tr>
          <tr>
-            <td style="border:none; background-color:rgba(0, 0, 0, 0);">
+            <td>
                Keberangkatan
             </td>
-            <td style="border:none; background-color:rgba(0, 0, 0, 0);">
+            <td>
             :
             </td>
             <td>
@@ -76,10 +79,10 @@
          <form method="get" id="detailpemesanan">
          <?php for ($i = 1; $i <= $_GET['penumpang']; $i++): ?>
             <tr>
-               <td class="konfirmasi" id = "no"><?=$i?>
+               <td class="konfirmasi" id = "no" width="6%" text-align="center">
                   <label for="nama<?=$i?>">Go</label>
+                  <?=$i?>
                </td>
-               
                <td class="konfirmasi" >
                   <input class="konfirmasiinput" name = "namaoke<?=$i?>" id="namaoke<?=$i?>" value=""  required>
                </td>

@@ -16,7 +16,17 @@
          <tr>
             <td  style="width : 30%">
                <div class = "dropdown">
-                  <input onkeypress="return false;" autocomplete="off" onclick='toggleDp("dp-input-01")' class="dp" placeholder="Kota asal" type="text" id="input-01" name="asal" required
+                  <input 
+                     onkeypress="return false;" 
+                     autocomplete="off" 
+                     onclick='toggleDp("dp-input-01")' 
+                     class="dp" 
+                     placeholder="Kota asal" 
+                     type="text" 
+                     id="input-01" 
+                     name="asal"
+                     required
+
                      <?php
                         if (isset($_GET["cari"])){
                      ?>
@@ -35,7 +45,17 @@
 
             <td style="width : 30%">
                <div class="dropdown">
-                  <input onkeypress="return false;" autocomplete="off" onclick='toggleDp("dp-input-02")' class="dp" placeholder="Kota tujuan" type="text" id="input-02" name="tujuan" required
+                  <input 
+                     onkeypress="return false;" 
+                     autocomplete="off" 
+                     onclick='toggleDp("dp-input-02")' 
+                     class="dp" 
+                     placeholder="Kota tujuan" 
+                     type="text" 
+                     id="input-02" 
+                     name="tujuan" 
+                     required
+
                      <?php
                         if (isset($_GET["cari"])){
                      ?>
@@ -99,27 +119,27 @@
             ?>
             <a class="bis-button">
             <form method="get">
-               <img class="bis_img" src="../img/bus/<?=$bis[$i][0]?>.png">
-               <table class="search-result">
+               <table class="search-result" style="width:100%; margin:0;">
                   <tr>
-                     <td style="border:none; background-color:rgba(0, 0, 0, 0);">
+                     <td rowspan="3" text-align="center" padding="0px">
+                        <img class="bis_img" src="../img/bus/<?=$bis[$i][0]?>.png">
+                     </td>
+                     <td rowspan="3" width="10%"></td>
+                     <td width="20%">
                         Kota asal
                      </td>
-                     <td style="border:none; background-color:rgba(0, 0, 0, 0);">
-                     :
-                     </td>
-                     <td >
+                     <td>:</td>
+                     <td width="20%">
                         <?=$bis[$i][1];?>
                      </td>
-                     <td rowspan="3" style="border:none; background-color:rgba(0, 0, 0, 0);">
+                     <td rowspan="3" rowspan="3" width="10%" >
                         <div class="dropdownseat">
-                           <a class = "left" onclick='dudukan("bangkubangku<?=$i?>")' >Lihat kursi tersedia</a>
+                           <a class = "left" style="font-size:12px; width:100%" onclick='dudukan("bangkubangku<?=$i?>")' >Kursi tersedia</a>
                            <div class="seatdrop" id = "bangkubangku<?=$i?>">
                               <?php
                               for ($j = 0; $j <45; $j++){
                                  $col = $bis[$i][5][$j];
                               ?>
-
                               <a class = "listseat"
                                  <?php 
                                     if ($col === "dipesan"){ ?>
@@ -127,7 +147,9 @@
                                  <?php 
                                     }
                                  ?>
-                              > <?=$j+1?> </a>
+                              > <?=$j+1?> 
+                              </a>
+
                               <?php if ($j == 1){ ?>
                               <a class = 'listseat' style="width : 5%; visibility:hidden;" ></a> 
                               <a class = 'listseat' style=" color : rgb(26, 100, 230) ">Kenek</a>
@@ -140,7 +162,7 @@
                                  ";
                               }
                               else if( ($j+1)%4 == 0){
-                                 echo"<a class = 'listseat' style='width : 5%; visibility:hidden; '></a>";
+                                 echo"<a class = 'listseat' style='width : 5%; visibility:hidden;'></a>";
                               }
                               }
                               ?>
@@ -148,23 +170,25 @@
                            </div>
                         </div>
                      </td>
+                     <td rowspan="3" width="20%"></td>
+                     <td rowspan="3" width="20%">
+                        <button class = "right" name = "pesan">Pesan</button>
+                     </td>
                   </tr>
                   <tr>
-                     <td style="border:none; background-color:rgba(0, 0, 0, 0);">
+                     <td >
                         Kota tujuan
                      </td>
-                     <td style="border:none; background-color:rgba(0, 0, 0, 0);">
-                     :
-                     </td>
+                     <td >:</td>
                      <td>
                         <?=$bis[$i][2];?>
                      </td>
                   </tr>
                   <tr>
-                     <td style="border:none; background-color:rgba(0, 0, 0, 0);">
+                     <td >
                         Keberangkatan
                      </td>
-                     <td style="border:none; background-color:rgba(0, 0, 0, 0);">
+                     <td >
                      :
                      </td>
                      <td>
@@ -177,10 +201,8 @@
                   <input type="hidden" name="selectedAsal" value=<?=$bis[$i][1];?>>
                   <input type="hidden" name="selectedTujuan" value=<?=$bis[$i][2];?>>
                   <input type="hidden" name="selectedTanggal" value=<?=$bis[$i][3];?>>
-                  <button class = "right" name = "pesan">Pesan</button>
-               
                </table>
-               </form>
+            </form>
             </a>
             <?php
                }

@@ -1,7 +1,12 @@
 <!DOCTYPE html>
+<?php
+if(isset($_POST["login"]) ){
+   
+}
+?>
 <html>
    <head>
-      <link rel="stylesheet" href="stylelogin.css">
+      <link rel="stylesheet" href="css/stylelogin.css">
       <script src="script.js"></script>
       <title>
          Login sebagai costumer
@@ -9,7 +14,7 @@
    </head>
    <body>
       <div>
-         <form class="login-form" method="GET">
+         <form class="login-form" method="POST">
             <h2>Login Sebagai Costumer</h2>
             <label for="email">
                Email:
@@ -20,7 +25,7 @@
                Password:
             </label><br>
             <input type="password" name = "password" id = "password" required><br>
-            <button type="submit" class="login-button" >Login</button>
+            <button type="submit" class="login-button" formaction="indeks.php" name="login" >Login</button>
             <a href="">lupa password?</a><br>
             <a href="">belum mendaftar?</a>
          </form>

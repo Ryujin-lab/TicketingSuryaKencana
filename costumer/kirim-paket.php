@@ -10,7 +10,7 @@ include "bis.php";
    <body>
       <div class = "jadwal">
       <h2 style="text-align: center; color: rgb(26, 100, 230)">Detail Pengiriman Paket</h2>
-         <form method="get">
+         <form method="get" id="detailpaket">
          <table class = "pengirimanpaket">
             <tr>
                <td class="tittle">
@@ -19,12 +19,20 @@ include "bis.php";
                <td>:</td>
                <td colspan="4">
                   <div class = "dropdown">
-                     <input onkeypress="return false;" autocomplete="off" onclick='toggleDp("dp-input-01")' class="dp" placeholder="Kota asal" type="text" id="input-01" name="asal" required
+                     <input onkeypress="return false;" 
+                        autocomplete="off" 
+                        onclick='toggleDp("dp-input-01")' 
+                        class="dp" 
+                        placeholder="Kota asal" 
+                        type="text" 
+                        id="input-01" 
+                        name="asal" 
+                        required
                         <?php
                            if (isset($_GET["caridestnasi"])){
                         ?>
                            value = <?=$_GET["asal"];?>
-                        <?php 
+                        <?php
                         }
                         ?>
                      >
@@ -37,7 +45,7 @@ include "bis.php";
                </td>
                <td rowspan="3" style="width:50%; text-align:center; color:rgb(26,100, 230);">
                   <h4>Harga pengiriman /Paket</h3>
-                  <a style="font-size:30px" ><?=$paket?></a>
+                  <a style="font-size:30px" id="hargapaket"><?=$paket?></a>
                </td>   
             </tr>
             <tr >
@@ -47,7 +55,15 @@ include "bis.php";
                <td>:</td>
                <td colspan="4">
                   <div class="dropdown">
-                     <input onkeypress="return false;" autocomplete="off" onclick='toggleDp("dp-input-02")' class="dp" placeholder="Kota tujuan" type="text" id="input-02" name="tujuan" required
+                     <input onkeypress="return false;" 
+                        autocomplete="off" 
+                        onclick='toggleDp("dp-input-02")' 
+                        class="dp" 
+                        placeholder="Kota tujuan" 
+                        type="text" 
+                        id="input-02" 
+                        name="tujuan" 
+                        required
                         <?php
                            if (isset($_GET["caridestnasi"])){
                         ?>
@@ -74,16 +90,7 @@ include "bis.php";
                   <a class="num" id = "kurang" onclick='setNum(this.id, "penumpang")' >-</a>
                </td>
                <td  style="width:10%">
-                  <input class="penumpang" id="penumpang" name="paket" type = "text" 
-                  <?php
-                     if (isset($_GET["cari"])){ ?>
-                           value = <?=$_GET['paket'];?>
-                     <?php }
-                        else{ ?>
-                           value=1 ;
-                     <?php   }
-                     ?>
-                  readonly>
+                  <input class="penumpang" id="penumpang" name="paket" type = "text" value=1 readonly>
                </td>
                <td  style="width:5%">
                   <a class="num" id="tambah" name="banyak" onclick='setNum(this.id, "penumpang")' >+</a>
@@ -120,7 +127,7 @@ include "bis.php";
             </tr>
             <tr>
                <td colspan="7" style="text-align: center"> 
-                  <button class="dp" type="submit" name="caridestnasi" style="width: 20%;text-align: center" >Lanjut</button>
+                  <button onclick="doublecheck();" class="dp" type="button" name="caridestnasi" style="width: 20%;text-align: center" >Lanjut</button>
                </td>
             </tr>
          </table>
@@ -128,10 +135,14 @@ include "bis.php";
       </div>
       <div class = "modal" id = "modal">
          <div class = "modal-content">
-            <h2 style="color:rgb(26, 100, 230)">LANJUTKAN KE HALAMAN PEMBAYARAN?</h2>
-            <p style="color:orangered">*pastikan untuk mengecek kembali form pemesanan*</p>
+            <h2 style="color:rgb(26, 100, 230)">KIRIM REGISTRASI?</h2>
+            <div class="totalpembayarantiket"> 
+               Rp. <input type="text" id="bayartotal" form = "detailpaket" value =<?=$paket?> readonly>
+            </div> 
+            <p style="color:orangered">*pastikan untuk mengecek kembali form registrasi paket* <br>
+            *Biaya pengiriman bisa langsung diserahkan ke agen terdekat ketika akan melakukan pengiriman barang*</p>
             <button onclick="closedoublecheck()" class = "lastconfirm" id = "cancel" name ="cancel" type="button">KEMBALI</button>
-            <button class = "lastconfirm" id = "lastconfirm" name ="lastconfirm" type="submit" form = "detailpemesanan">LANJUTKAN</button>
+            <button class = "lastconfirm" id = "lastconfirm" name ="lastconfirm" type="submit" form = "detailpaket">LANJUTKAN</button>
          </div>
       </div>
 

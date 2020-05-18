@@ -116,9 +116,10 @@ object{
    width: 80%;
    box-sizing: border-box;
 }
-/* .search-result tr td{
-   border : 1px solid black;
-} */
+.search-result tr td{
+   /* border : 1px solid black; */
+   background-color: none;
+}
 
 .button-dp:hover{
    background-color : rgb(26, 100, 230);
@@ -127,8 +128,8 @@ object{
 .jadwal{
    border : solid 1px rgb(26, 100, 230);
    padding : 1%;
-   margin-left : 15%;
-   margin-right : 15%;
+   margin-left : 10%;
+   margin-right : 10%;
    margin-top : 1%;
    border-radius: 10px;
    width : auto;
@@ -191,16 +192,14 @@ button div a{
 }
 .bis_img{
    width:85px;
-   float:left;
-   margin : 1%;
-   display: block;
+   margin : 0;
+   display: inline-block;
 }
 
 table{
    margin: 7px;
 }
-.bis-button tr td{
-   background-color : rgba(175, 204, 255, 0.212);
+.bis-button tr td{   
    padding : 5px;
    text-align: left;
    border-radius: 5px;
@@ -209,14 +208,21 @@ table{
 .right{
    float: right;
    background-color:white;
-   padding : 1%;
-   margin-top : 4%;
-   margin-bottom : 4%;
-   margin-right: 4%;
    border : 1px solid rgb(26, 100, 230);
    border-radius: 5px;
    color : rgb(26, 100, 230);
+   width : 50%;
+   padding : 10px;
 }
+
+.right:hover{
+   background-color :1px solid rgba(26, 100, 230, 0.1);
+}
+
+.right:active{
+   background-color :1px solid rgba(26, 100, 230, 0.1);
+}
+
 .dropdownseat .left{
    background-color:white;
    padding : 5%;
@@ -225,15 +231,18 @@ table{
    border : 1px solid rgb(26, 100, 230);
    border-radius: 5px;
    color : rgb(26, 100, 230);
-   width: 100% ;
+   width: 90% ;
    display: block;
    cursor: default;
 }
 
-.seatdropshow{   
-   
+.left:hover{
+   background-color : rgb(26, 100, 230, 0.1);
 }
 
+.left:active{
+   background-color : rgb(26, 100, 230, 0.2)
+}
 
 .seatdrop{
    position: absolute;
@@ -428,6 +437,7 @@ table{
 
 .detailall tr td{
    border : 1px solid rgb(26, 101, 230);
+   padding : 3px;
 }
 
 .konfirmasiinput{
@@ -446,6 +456,10 @@ table{
    margin-left: 35%;
    border : 1px solid rgb(26,101,230);
    border-radius: 5px;
+}
+
+.submitall:hover{
+   background-color : rgb(26, 100, 230,0.2);
 }
 
 .konfirmasi label{
@@ -587,4 +601,19 @@ input[type=number] {
 
 .tittle{
    width: 15%;
+}
+
+.totalpembayarantiket{
+   font-size: 30px;
+   color : rgb(26, 100, 230);
+}
+
+.totalpembayarantiket input{
+   font-size: 30px;
+   color : rgb(26, 100, 230);
+   overflow: visible;
+}
+
+.carijadwal tr td{   
+   /* border: 1px solid black; */
 }

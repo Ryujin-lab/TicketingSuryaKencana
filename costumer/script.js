@@ -36,7 +36,11 @@ function setNum(buttonId, valId){
          obj.value = val-1;
       }
    }
-   // obj.click();
+
+   var send = document.getElementById("bayartotal");
+   var tiket = document.getElementById("hargapaket").innerHTML;
+
+   send.value = parseInt(tiket) * parseInt(obj.value) ;
 }
 
 function ambil(inputId, valId){
@@ -62,16 +66,43 @@ function berinilai (no, nama, kelamin, telepon, penjemputan, bangku, pesan ){
 }
 
 function doublecheck(){
-   console.log("udin");
    document.getElementById("modal").style.display = "block";
 }
+
 function closedoublecheck(){
-   console.log("udin");
    document.getElementById("modal").style.display = "none";
 }
 
 window.onclick = function(event) {
    if (event.target == document.getElementById("modal")) {
-     modal.style.display = "none";
+      modal.style.display = "none";
    }
- }
+}
+
+function find(){
+   var input01, input02, filter, ul, li, a, b, i, txtValue;
+   input01 = document.getElementById("input-01").value;
+   input02 = document.getElementById("input-02").value;
+   ul = document.getElementById("buss");
+   li = ul.getElementsByTagName("li");
+   for (i = 0; i<li.length;i++){
+      a = document.getElementById("asal"+i).innerHTML;
+      b = document.getElementById("tujuan"+i).innerHTML;
+      if(input01 === "" && input02 === ""){
+         document.getElementById("listbus"+i).style.display = "block";
+      }
+      else if (input01 === a && input02 === b){
+         document.getElementById("listbus"+i).style.display = "block";
+      }
+      else if (input01 === a && input02 === ""){
+         document.getElementById("listbus"+i).style.display = "block";
+      }
+      else if (input02 === b && input01 ===""){
+         document.getElementById("listbus"+i).style.display = "block";
+      }
+      else{
+         document.getElementById("listbus"+i).style.display = "none";
+      }
+   }
+}
+
