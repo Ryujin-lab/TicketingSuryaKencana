@@ -1,5 +1,5 @@
 var bishead = new Array();
-bishead = ["aksi", "Kode Bus", "Tanggal Berangkat","Waktu Berangkat","Harga Tiket", "Harga Pengirman Paket","Supir" ];
+bishead = ["Kode Bus", "Tanggal Berangkat","Waktu Berangkat","Harga Tiket", "Harga Pengirman Paket","Supir","aksi" ];
 
 function createTable() {
    var empTable = document.createElement('table');
@@ -13,14 +13,14 @@ function createTable() {
    }
    var div = document.getElementById("jadwal");
    div.appendChild(empTable);
-   // var div2 = document.getElementById("currentjadwal");
-   // div2.appendChild(empTable); // add the TABLE to the container.
 }
 
 var  supir = new Array();
 supir = ["udin", "bambang", "ujang", "busu", "hasan", "abdullah"];
 
+
 function addRow() {
+   document.getElementById("jadwal").className = "jadwal";
    var empTab = document.getElementById('empTable');
 
    var rowCnt = empTab.rows.length;   // table row count.
@@ -31,7 +31,7 @@ function addRow() {
       var td = document.createElement('td'); // table definition.
       td = tr.insertCell(c);
 
-      if (c == 0) {      // the first column.
+      if (c == bishead.length-1) {      // the first column.
          // add a button in every new row in the first column.
          var button = document.createElement('input');
 
@@ -46,7 +46,7 @@ function addRow() {
          td.appendChild(button);
       }
       else{
-         if (c==1){  //codebus
+         if (c==0){  //codebus
             var ele = document.createElement('select');
             ele.id = "selectbis";
             ele.className = "ele";
@@ -66,35 +66,35 @@ function addRow() {
             td.appendChild(ele);
          }
    
-         else if (c==2) { //Tanggal Berangkat
+         else if (c==1) { //Tanggal Berangkat
             var ele = document.createElement('input');
             ele.setAttribute('class', 'ele');
             ele.setAttribute('type', 'date');
             ele.setAttribute('value', '');
             td.appendChild(ele);
          }
-         else if (c==3) { //Waktu Berangkat
+         else if (c==2) { //Waktu Berangkat
             var ele = document.createElement('input');
             ele.setAttribute('class', 'ele');
             ele.setAttribute('type', 'time');
             ele.setAttribute('value', '');
             td.appendChild(ele);
          }
-         else if (c==4) { //Harga Tiket
+         else if (c==3) { //Harga Tiket
             var ele = document.createElement('input');
             ele.setAttribute('class', 'ele');
             ele.setAttribute('type', 'number');
             ele.setAttribute('value', '');
             td.appendChild(ele);
          }
-         else if (c==5) { //Harga Pengirman Paket
+         else if (c==4) { //Harga Pengirman Paket
             var ele = document.createElement('input');
             ele.setAttribute('class', 'ele');
             ele.setAttribute('type', 'number');
             ele.setAttribute('value', '');
             td.appendChild(ele);
          }
-         else if (c==6) { //supir
+         else if (c==5) { //supir
             var ele = document.createElement('select');
             ele.id = "selectsupir";
             ele.className = "ele";
@@ -127,3 +127,92 @@ function removeRow(oButton) {
    var empTab = document.getElementById('empTable');
    empTab.deleteRow(oButton.parentNode.parentNode.rowIndex); // button -> td -> tr.
 }
+
+function cancel(idtujuan, tableid){
+   var show = document.getElementById(idtujuan);
+   show.className = "hidden";
+   var elmtTable = document.getElementById(tableid);
+   var tableRows = elmtTable.getElementsByTagName('tr');
+   var rowCount = tableRows.length;
+   for (var x=rowCount-1; x>0; x--) {
+      elmtTable.deleteRow(x);
+   }
+}
+
+
+var supirhead = new Array();
+supirhead =  ["Foto", "Nama", "No.Hp", "Aksi" ];
+
+function createTableSupir() {
+   console.log(supirhead[0]);
+   var empTable = document.createElement('table');
+   empTable.setAttribute("class", "tabelbis");
+   empTable.setAttribute('id', 'tabelsupir'); // table id.
+
+   var tr = empTable.insertRow(-1);
+   for (var h = 0; h < supirhead.length; h++) {
+      var th = document.createElement('th'); // create table headers
+      th.innerHTML = supirhead[h];
+      tr.appendChild(th);
+   }
+   var div = document.getElementById("divsupir");
+   div.appendChild(empTable);
+}
+
+function addsupirrow() {
+   document.getElementById("divsupir").className = "jadwal";
+   var empTab = document.getElementById('tabelsupir');
+   var rowCnt = empTab.rows.length;   // table row count.
+   var tr = empTab.insertRow(rowCnt); // the table row.
+   tr = empTab.insertRow(rowCnt);
+
+   for (var c = 0; c < supirhead.length; c++) {
+      var td = document.createElement('td'); // table definition.
+      td = tr.insertCell(c);
+   
+      if (c == supirhead.length-1) {   
+         var button = document.createElement('input');
+   
+         // set input attributes.
+         button.setAttribute('type', 'button');
+         button.setAttribute('value', 'hapus');
+         button.setAttribute('class', 'hapus')
+   
+         // add button's 'onclick' event.
+         button.setAttribute('onclick', 'removeRowSupir(this)');
+   
+         td.appendChild(button);
+      }
+
+      else{
+         if (c==0){
+            var button = document.createElement('input');
+            button.setAttribute('type', 'button');
+            button.setAttribute('value', 'Tambah Foto');
+            button.setAttribute('class', 'tambahfoto');
+            td.appendChild(button);
+         }
+         else if (c==1){
+            var ele = document.createElement('input');
+            ele.setAttribute('class', 'ele');
+            ele.setAttribute('type', 'text');
+            ele.setAttribute('value', '');
+            td.appendChild(ele);
+         }
+         else if (c==2){   
+            var ele = document.createElement('input');
+            ele.setAttribute('class', 'ele');
+            ele.setAttribute('type', 'number');
+            ele.setAttribute('value', '');
+            td.appendChild(ele);
+         }
+      }
+   }
+}
+
+function removeRowSupir(oButton) {
+   var empTab = document.getElementById('tabelsupir');
+   empTab.deleteRow(oButton.parentNode.parentNode.rowIndex); // button -> td -> tr.
+}
+
+

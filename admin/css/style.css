@@ -76,7 +76,9 @@ object{
    width : auto;
    overflow: hidden;
 }
-
+.hidden {
+   display: none;
+}
 .tabelbis{
    width: 100%;
    border-collapse: collapse;
@@ -126,4 +128,15 @@ input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+
+.tambahfoto{
+   background-color : rgb(26, 100, 230, 0.8);
+   border : 1px solid rgba(255, 68, 0, 0.5);
+   padding : 5px;
+}
+
+input{
+   width : 90%;
+   margin : 0;
 }
