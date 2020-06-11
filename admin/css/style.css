@@ -149,7 +149,7 @@ input{
 }
 
 table.kursi tr td{
-   border : none !important;
+   /* border : 2px solid black; */
 }
 
 .kursi{
@@ -158,6 +158,7 @@ table.kursi tr td{
 
 .nomor {
    text-align:right;
+   width: 40%;
 }
 
 .fully{

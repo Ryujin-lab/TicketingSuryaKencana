@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <?php
 include "bus.php";
+$conn = mysqli_connect("localhost", "root", "", "suryakencana");
+$jadwal = mysqli_query($conn, "select * from menjadwalkan");
+
 ?>
 <html>
    <head>
@@ -12,32 +15,46 @@ include "bus.php";
          <table class = "tabelbis" id= "current">
             <tr>
                <?php for ($i = 0; $i < count($pelangganhead); $i++):?>
-                  <th><?=$pelangganhead[$i]?></th>
+                  <th ><?=$pelangganhead[$i]?></th>
                <?php endfor; ?>
             </tr>
-            <?php for ($i = 0; $i < count($detailpelanggan); $i++):?>
+
+            <?php while ( $val = mysqli_fetch_assoc($jadwal) ):
+               $strbis = $val["id_bis"];
+               $strsupir = $val["id_supir"];
+               $dipesan =  mysqli_fetch_assoc (mysqli_query($conn, "select count(keterangan) as jumlah from bangku where id_bis = '$strbis' and keterangan ='dipesan' " ) )["jumlah"];
+               $dibayar =  mysqli_fetch_assoc (mysqli_query($conn, "select count(keterangan) as jumlah from bangku where id_bis = '$strbis' and keterangan ='dibayar' " ) )["jumlah"];
+               $kosong =  mysqli_fetch_assoc (mysqli_query($conn, "select count(keterangan) as jumlah from bangku where id_bis = '$strbis' and keterangan ='kosong' " ) ) ["jumlah"];
+               $supir = mysqli_fetch_assoc (mysqli_query($conn, "select * from supir where id_supir = '$strsupir'"))["nama_supir"];
+            ?>
             <tr>
-               <?php for ($j = 0; $j < count($detailpelanggan[0]); $j++):?>
-                  <td>
-                     <?= $detailpelanggan[$i][$j]; ?>
-                  </td>
-               <?php endfor; ?>
-               <td>
-                  <button type="button" class="hapus" onclick="" >Lihat Rincian</button>
-               </td>
+               <td> <?=$val["id_bis"]; ?></td>
+               <td> <?=$val["tanggal_berangkat"]; ?></td>
+               <td> <?=$val["jam_berangkat"]; ?></td>
+            
+               <td> <?= $kosong; ?></td>
+               <td> <?= $dipesan; ?></td>
+               <td> <?= $dibayar; ?></td>
+               <td> <?= $supir; ?></td>
             </tr>
-            <?php endfor; ?>
+            <?php endwhile; ?>
          </table>
       </div>
 
       <div class="jadwal" id="detailfull">
          <h2 style="text-align: center; color: rgb(26, 100, 230)">Detail Penumpang Bus</h2>
-            <?php for ($x = 1; $x<=7; $x++): ?>
+            <?php 
+            $jadwal = mysqli_query($conn, "select * from menjadwalkan");
+            $head = mysqli_fetch_assoc($jadwal);
+            while ($head = mysqli_fetch_assoc($jadwal)): 
+               $id_bis = $head["id_bis"];
+               $resbangku = mysqli_query($conn, "SELECT * FROM bangku WHERE id_bis='$id_bis' ORDER BY bangku.id_bis ASC, bangku.no_bangku ASC");
+            ?>
             <div class="fully" >
                <table class = "bus">
                   <tr>
                      <td width="10%">
-                        <img width="100px" src="../img/bus/ac0<?=$x?>.png">
+                        <img width="100px" src="../img/bus/<?=$id_bis?>.png">
                      </td>
                      <td rowspan="4">
                         <table class = "kursi">
@@ -47,20 +64,28 @@ include "bus.php";
                               </td>
                            </tr>
                            <?php $indeks= 1;
-                           $dibayar = array(1,5,6,9,2,4,20,45);
-                           $dipesan = array(1,5,6,9,2,4,20,45);
                            for ($i = 0; $i <5; $i++): ?>
                            <tr>
                               <?php for ($j = 0; $j <9; $j++): ?>
-                              <td class="nomor">
-                                 <?=$indeks?>
-                              </td>
-                              <td>
-                                 <select id="cars" name="carlist" form="carform">
-                                    <option value="status" hidden selected disabled>Status</option>
-                                    <option value="saab">dipesan</option>
-                                    <option value="audi">dibayar</option>
-                                 </select>
+                              <td style = "border: 1px solid rgb(26, 100, 230, 0.3);">
+                                 <table class = "sub">
+                                    <tr colspan="2">
+                                       user<?= rand(0,999);?>:
+                                    </tr>
+                                    <tr>
+                                       <td class="nomor">
+                                          <?=$indeks?>
+                                       </td>
+                                       <td>
+                                          <select id="cars" name="carlist" form="carform">
+                                             <option value="status" hidden selected disabled>Status</option>
+                                             <option value="saab" style="color: rgb (26, 100, 230)">dipesan</option>
+                                             <option value="audi">dibayar</option>  
+                                             <option value="batal">batal</option>
+                                          </select>
+                                       </td>
+                                    </tr>
+                                 </table>
                               </td>
                               <?php  $indeks++; endfor; ?>
                            </tr>
@@ -90,15 +115,15 @@ include "bus.php";
                   </tr>
                </table>
             </div>
-            <?php endfor; ?>
+            <?php endwhile; ?>
       </div>
       <div class = "modal" id = "modal">
-      <div class = "modal-content">
-         <h2 style="color:rgb(26, 100, 230)">SIMPAN PERUBAHAN?</h2>
-         <p style="color:orangered">*perubahan yang dilakukan masih bisa diubah lagi*</p>
-         <button onclick="kembali('modal')" class = "lastconfirm" id = "cancel" name ="cancel" type="button">KEMBALI</button>
-         <button onclick ="kembali('modal')" class = "lastconfirm" id = "lastconfirm" name ="lastconfirm" type="button" form = "detailpemesanan">SIMPAN</button>
+         <div class = "modal-content">
+            <h2 style="color:rgb(26, 100, 230)">SIMPAN PERUBAHAN?</h2>
+            <p style="color:orangered">*perubahan yang dilakukan masih bisa diubah lagi*</p>
+            <button onclick="kembali('modal')" class = "lastconfirm" id = "cancel" name ="cancel" type="button">KEMBALI</button>
+            <button onclick ="kembali('modal')" class = "lastconfirm" id = "lastconfirm" name ="lastconfirm" type="button" form = "detailpemesanan">SIMPAN</button>
+         </div>
       </div>
-   </div>
    </body>
 </html>

@@ -1,5 +1,5 @@
 var bishead = new Array();
-bishead = ["Kode Bus", "Tanggal Berangkat","Waktu Berangkat","Harga Tiket", "Harga Pengirman Paket","Supir","aksi" ];
+bishead = ["Kode Bus","Kota Asal", "Kota Tujuan", "Tanggal Berangkat","Waktu Berangkat","Harga Tiket", "Harga Pengirman Paket","Supir","aksi" ];
 
 function createTable() {
    var empTable = document.createElement('table');
@@ -14,10 +14,6 @@ function createTable() {
    var div = document.getElementById("jadwal");
    div.appendChild(empTable);
 }
-
-var  supir = new Array();
-supir = ["udin", "bambang", "ujang", "busu", "hasan", "abdullah"];
-
 
 function addRow() {
    document.getElementById("jadwal").className = "jadwal";
@@ -49,6 +45,8 @@ function addRow() {
          if (c==0){  //codebus
             var ele = document.createElement('select');
             ele.id = "selectbis";
+            ele.setAttribute('name', "selectbis[]")
+            ele.setAttribute("required","")
             ele.className = "ele";
             for (var j = 0; j<11; j++){
                var option = document.createElement('option');
@@ -58,7 +56,7 @@ function addRow() {
                   option.setAttribute('hidden', 'true');
                }
                else{
-                  option.value = "AC-0"+j;
+                  option.value = "ac"+j;
                   option.text = "AC-0"+j;
                }
                ele.appendChild(option);
@@ -66,36 +64,64 @@ function addRow() {
             td.appendChild(ele);
          }
    
-         else if (c==1) { //Tanggal Berangkat
+         else if (c==1) { //asal
             var ele = document.createElement('input');
+            ele.setAttribute('name',  "asal[]");
+            ele.setAttribute('class', 'ele');
+            ele.setAttribute('type', 'text');
+            ele.setAttribute('value', '');
+            ele.setAttribute("required","")
+            td.appendChild(ele);
+         }
+         else if (c==2) { //tujuan
+            var ele = document.createElement('input');
+            ele.setAttribute('name', 'tujuan[]');
+            ele.setAttribute('class', 'ele');
+            ele.setAttribute('type', 'text');
+            ele.setAttribute('value', '');
+            ele.setAttribute("required","")
+            td.appendChild(ele);
+         }
+         else if (c==3) { //Waktu Berangkat
+            var ele = document.createElement('input');
+            ele.setAttribute('name', 'waktu[]');
             ele.setAttribute('class', 'ele');
             ele.setAttribute('type', 'date');
             ele.setAttribute('value', '');
+            ele.setAttribute("required","")
             td.appendChild(ele);
          }
-         else if (c==2) { //Waktu Berangkat
+         else if (c==4) { //jam Berangkat
             var ele = document.createElement('input');
+            ele.setAttribute('name', 'jam[]');
             ele.setAttribute('class', 'ele');
             ele.setAttribute('type', 'time');
             ele.setAttribute('value', '');
+            ele.setAttribute("required","")
             td.appendChild(ele);
          }
-         else if (c==3) { //Harga Tiket
+         else if (c==5) { //Harga Tiket
             var ele = document.createElement('input');
+            ele.setAttribute('name', 'tiket[]');
             ele.setAttribute('class', 'ele');
             ele.setAttribute('type', 'number');
             ele.setAttribute('value', '');
+            ele.setAttribute("required","")
             td.appendChild(ele);
          }
-         else if (c==4) { //Harga Pengirman Paket
+         else if (c==6) { //Harga Pengirman Paket
             var ele = document.createElement('input');
+            ele.setAttribute('name', 'paket[]');
             ele.setAttribute('class', 'ele');
             ele.setAttribute('type', 'number');
             ele.setAttribute('value', '');
+            ele.setAttribute("required","")
             td.appendChild(ele);
          }
-         else if (c==5) { //supir
+         else if (c==7) { //supir
             var ele = document.createElement('select');
+            ele.setAttribute('name', 'supir[]');
+            ele.setAttribute('required', '');
             ele.id = "selectsupir";
             ele.className = "ele";
             for (var j = 0; j<supir.length; j++){
@@ -141,7 +167,7 @@ function cancel(idtujuan, tableid){
 
 
 var supirhead = new Array();
-supirhead =  ["Foto", "Nama", "No.Hp", "Aksi" ];
+supirhead =  ["Nama", "No.Hp", "Aksi" ];
 
 function createTableSupir() {
    console.log(supirhead[0]);
@@ -185,25 +211,22 @@ function addsupirrow() {
       }
 
       else{
+
+
          if (c==0){
-            var button = document.createElement('input');
-            button.setAttribute('type', 'button');
-            button.setAttribute('value', 'Tambah Foto');
-            button.setAttribute('class', 'tambahfoto');
-            td.appendChild(button);
-         }
-         else if (c==1){
             var ele = document.createElement('input');
             ele.setAttribute('class', 'ele');
             ele.setAttribute('type', 'text');
-            ele.setAttribute('value', '');
+            ele.setAttribute('name', "nama[]");
+            ele.setAttribute('required', "");
             td.appendChild(ele);
          }
-         else if (c==2){   
+         else if (c==1){   
             var ele = document.createElement('input');
             ele.setAttribute('class', 'ele');
             ele.setAttribute('type', 'number');
-            ele.setAttribute('value', '');
+            ele.setAttribute('required', "");
+            ele.setAttribute('name', "hp[]")
             td.appendChild(ele);
          }
       }
