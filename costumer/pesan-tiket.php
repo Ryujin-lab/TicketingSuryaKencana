@@ -1,5 +1,10 @@
 <?php 
    include "bis.php";
+   include "logic.php";
+   session_start();
+
+   $tabel = mysqli_query($conn,)
+
 ?>
 
 <head>

@@ -8,6 +8,9 @@
       else {
          $halaman = $_GET['halaman']; 
       }
+      if (isset($_GET['profil'])){
+         header("Location:indeks.php?halaman=profil");
+      }
    }
 
    else{
@@ -28,10 +31,8 @@
    <body>
       <img src="../img/logo.png" style="height: 50px; margin: 5px; ">
       <form class= "rn" method="get">
-         <a type="a"
-            href="indeks.php?halaman=profil"
-         >ADMIN : <?= $_SESSION["username"] ?> </a>
-         <a type="submit" name = "logout">LOGOUT</a>
+         <button type="submit" name= "profil">ADMIN : <?= $_SESSION["username"] ?> </button>
+         <button type="submit" name = "logout">LOGOUT</button>
       </form>
       <div class="topnav">
          <a href="indeks.php?halaman=manajemen-bus" class="inactive" id="bus">Manajemen Bus</a>

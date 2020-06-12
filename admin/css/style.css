@@ -262,7 +262,7 @@ table.kursi tr td{
    float : right;
 }
 
-.rn a{
+.rn button{
    float : left;
    display: block;
    background-color : rgb(26, 100, 230);
@@ -274,7 +274,7 @@ table.kursi tr td{
    color : black;
 }
 
-.rn a:hover{
+.rn button:hover{
    background-color : rgb(26, 100, 230, 0.8);
    transition:0.2s;
 }

@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <?php
    session_start();
-
    $conn = mysqli_connect("localhost", "root", "", "suryakencana");
    if (isset($_POST["login"])){
       $username = $_POST["username"];
@@ -15,6 +14,7 @@
             $_SESSION["id"] = $row["id_admin"];
             header ("Location: indeks.php");
          }
+
          else{
             echo"
             <script>

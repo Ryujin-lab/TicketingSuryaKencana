@@ -1,8 +1,50 @@
 <!DOCTYPE html>
 <?php
-if(isset($_POST["login"]) ){
-   
+include "logic.php";
+session_start();
+if (isset ($_SESSION['idp'])){
+   echo isset ($_SESSION['idp']);
+   echo"
+   <script>
+      window.location.href = 'indeks.php';
+   </script>
+   ";
 }
+else {
+   if(isset($_POST["login"]) ){
+      $email = strtolower ($_POST["email"]);
+      $password = $_POST["password"];
+      $res = mysqli_query($conn, "select * from pelanggan where email_p = '$email' " );
+      
+      if ( mysqli_num_rows( $res ) === 1) {
+         $tabel = mysqli_fetch_assoc($res);
+         var_dump ($tabel);
+         if ( password_verify ($password,  $tabel['password_p'] ) ){
+            $_SESSION['idp'] = $tabel['id_pelanggan'];
+            $_SESSION['emailp'] = $tabel['email_p'];
+            $_SESSION['usernamep'] = $tabel['username_p'];
+            $_SESSION['namap'] = $tabel['nama_p'];
+            header("Location : indeks.php");
+         }
+         else{
+            echo"
+            <script>
+               alert('Username dan Password tidak cocok')
+            </script>
+            ";
+         }
+      }
+      else{
+         echo"
+            <script>
+               alert('Email tidak ditemukan')
+            </script>
+         ";
+      }
+   }
+}
+
+
 ?>
 <html>
    <head>
@@ -25,9 +67,8 @@ if(isset($_POST["login"]) ){
                Password:
             </label><br>
             <input type="password" name = "password" id = "password" required><br>
-            <button type="submit" class="login-button" formaction="indeks.php" name="login" >Login</button>
-            <a href="">lupa password?</a><br>
-            <a href="">belum mendaftar?</a>
+            <button type="submit" class="login-button" name="login" >Login</button>
+            <a href="signup.php">belum mendaftar?</a>
          </form>
       </div>
    </body>

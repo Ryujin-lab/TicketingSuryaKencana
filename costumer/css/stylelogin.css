@@ -57,5 +57,79 @@ form{
 }
 
 a {
-   text-align: center;
+   color : rgb(93, 93, 93);
+}
+
+.modal{
+   display: none;
+   position: fixed;
+   z-index: 1; 
+   left: 0;
+   top: 0;
+   width: 100%; 
+   height: 100%; 
+   overflow: auto; 
+   background-color: rgb(0,0,0);
+   background-color: rgba(0,0,0,0.4);
+   -webkit-animation-name: fadeIn; 
+   -webkit-animation-duration: 0.4s;
+   animation-name: fadeIn;
+   animation-duration: 0.4s
+ }
+ 
+ .modal-content {
+    position: fixed;
+    bottom: 0;
+    border-radius:5px; 
+    border: 1px solid rgb(26, 100, 230);
+    background-color: #fefefe;
+    width: 60%;
+    margin: auto 20% auto 20%;
+    -webkit-animation-name: slideIn;
+    -webkit-animation-duration: 0.4s;
+    animation-name: slideIn;
+    animation-duration: 0.4s;
+    text-align:center;
+    padding-bottom: 10px;
+ }
+ @-webkit-keyframes slideIn {
+   from {bottom: -300px; opacity: 0} 
+   to {bottom: 0; opacity: 1}
+}
+
+@keyframes slideIn {
+   from {bottom: -300px; opacity: 0}
+   to {bottom: 0; opacity: 1}
+}
+
+@-webkit-keyframes fadeIn {
+   from {opacity: 0} 
+   to {opacity: 1}
+}
+
+@keyframes fadeIn {
+   from {opacity: 0} 
+   to {opacity: 1}
+}
+
+.lastconfirm{
+   padding : 10px;
+   width : 20%;
+   border: none;
+}
+
+#lastconfirm{
+   border: 1px solid rgb(26, 100, 230);
+   background-color : rgba(26, 101, 230, 0.5);
+}
+#lastconfirm:hover{
+   background-color : rgb(26,100, 230);
+}
+
+#cancel{
+   border : 1px solid orangered;
+   background-color : rgba(255, 68, 0, 0.5);
+}
+#cancel:hover{
+   background-color : orangered;
 }
