@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <?php
+
    if(!isset($_GET['halaman'])){
       $halaman = "indeks";
    }
@@ -17,8 +18,8 @@
    <body>
       <img src="../img/logo.png" style="height: 50px; margin: 5px; ">
       <div class="rightnav">
-      <a href="#login">Login</a>
-      <a href = "#daftar"> Daftar</a>
+      <a href="login.php">Login</a>
+      <a href = "signup.php"> Daftar</a>
 
       </div>
       <div class="topnav">

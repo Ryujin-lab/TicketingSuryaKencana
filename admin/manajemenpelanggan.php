@@ -2,7 +2,7 @@
 <?php
 include "bus.php";
 $conn = mysqli_connect("localhost", "root", "", "suryakencana");
-$jadwal = mysqli_query($conn, "select * from menjadwalkan");
+$jadwal = mysqli_query($conn, "select * from menjadwalkan order by tanggal_berangkat ASC, jam_berangkat ASC");
 
 ?>
 <html>
@@ -44,11 +44,21 @@ $jadwal = mysqli_query($conn, "select * from menjadwalkan");
       <div class="jadwal" id="detailfull">
          <h2 style="text-align: center; color: rgb(26, 100, 230)">Detail Penumpang Bus</h2>
             <?php 
-            $jadwal = mysqli_query($conn, "select * from menjadwalkan");
-            $head = mysqli_fetch_assoc($jadwal);
+            $jadwal = mysqli_query($conn, "select * from menjadwalkan order by tanggal_berangkat, jam_berangkat ASC");
+            function query($query) {
+               global $conn;
+               $result = mysqli_query($conn, $query);
+
+               $rows = [];
+               while ($row = mysqli_fetch_assoc($result)) {
+                  $rows[] = $row;
+               }
+               return $rows;
+            }
+
             while ($head = mysqli_fetch_assoc($jadwal)): 
                $id_bis = $head["id_bis"];
-               $resbangku = mysqli_query($conn, "SELECT * FROM bangku WHERE id_bis='$id_bis' ORDER BY bangku.id_bis ASC, bangku.no_bangku ASC");
+               $resbangku = query("SELECT * FROM bangku WHERE id_bis='$id_bis' ORDER BY bangku.id_bis ASC, bangku.no_bangku ASC");
             ?>
             <div class="fully" >
                <table class = "bus">
@@ -63,25 +73,40 @@ $jadwal = mysqli_query($conn, "select * from menjadwalkan");
                                  Daftar tempat duduk dan statusnya:
                               </td>
                            </tr>
-                           <?php $indeks= 1;
+                           <?php $indeks= 0;
                            for ($i = 0; $i <5; $i++): ?>
                            <tr>
                               <?php for ($j = 0; $j <9; $j++): ?>
-                              <td style = "border: 1px solid rgb(26, 100, 230, 0.3);">
+                              <td style = "border: 1px solid rgb(26, 100, 230, 0.3);
+                              <?php
+                              if ($resbangku[$indeks]["keterangan"] === "dipesan") echo"background-color: rgb(255, 255, 50, 0.3)";
+                              if ($resbangku[$indeks]["keterangan"] === "dibayar") echo"background-color: rgb(26, 100, 230, 0.1)";
+                              ?>
+                              "
+                              >
                                  <table class = "sub">
                                     <tr colspan="2">
-                                       user<?= rand(0,999);?>:
+                                       <?php 
+                                       if (is_null($resbangku[$indeks]["id_pelanggan"] ) ){ 
+                                          echo "Kursi Kosong";
+                                       
+                                       }
+                                       else{
+                                          echo $resbangku[$indeks]["id_pelanggan"];
+                                       }
+                                       ?>
+                                       
                                     </tr>
                                     <tr>
                                        <td class="nomor">
-                                          <?=$indeks?>
+                                          <?= $resbangku[$indeks]["no_bangku"]?>
                                        </td>
                                        <td>
                                           <select id="cars" name="carlist" form="carform">
-                                             <option value="status" hidden selected disabled>Status</option>
-                                             <option value="saab" style="color: rgb (26, 100, 230)">dipesan</option>
-                                             <option value="audi">dibayar</option>  
-                                             <option value="batal">batal</option>
+                                             <option value=<?= $resbangku[$indeks]["keterangan"] ?> hidden selected disabled> <?= $resbangku[$indeks]["keterangan"] ?> </option>
+                                             <option value="dipesan">dipesan</option>
+                                             <option value="dibayar">dibayar</option>  
+                                             <option value="kosong">kosong</option>
                                           </select>
                                        </td>
                                     </tr>
@@ -93,20 +118,9 @@ $jadwal = mysqli_query($conn, "select * from menjadwalkan");
                         </table>
                      </td>
                   </tr>
+                  <tr><td><?= $head["tanggal_berangkat"] ?></td></tr>
+                  <tr><td><?= $head["jam_berangkat"] ?></td></tr>
                   <tr>
-                     <td>
-                        01/02/2000
-                     </td>
-                  </tr>
-                  <tr>
-                     <td>
-                        10:10 PM
-                     </td>
-                  </tr>
-                  <tr>
-                     <td>
-                        45 penumpang
-                     </td>
                   </tr>
                   <tr>
                      <td colspan="2" style="text-align: right">

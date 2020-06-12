@@ -48,19 +48,19 @@ function addRow() {
             ele.setAttribute('name', "selectbis[]")
             ele.setAttribute("required","")
             ele.className = "ele";
-            for (var j = 0; j<11; j++){
+            for (var j = 0; j<listnamabis.length; j++){
                var option = document.createElement('option');
-               if (j == 0){
-                  option.setAttribute('selected','true');
-                  option.setAttribute('disabled', 'true');
-                  option.setAttribute('hidden', 'true');
-               }
-               else{
-                  option.value = "ac"+j;
-                  option.text = "AC-0"+j;
-               }
+               option.text = listnamabis[j];
+               option.value = listidbis[j];
+               console.log(listnamabis[0]);
                ele.appendChild(option);
             }
+            var option = document.createElement('option');
+            option.setAttribute('selected','true');
+            option.setAttribute('disabled', 'true');
+            option.setAttribute('hidden', 'true');
+            ele.appendChild(option);
+
             td.appendChild(ele);
          }
    
@@ -126,17 +126,15 @@ function addRow() {
             ele.className = "ele";
             for (var j = 0; j<supir.length; j++){
                var option = document.createElement('option');
-               if (j == 0){
-                  option.setAttribute('selected','true');
-                  option.setAttribute('disabled', 'true');
-                  option.setAttribute('hidden', 'true');
-               }
-               else{
-                  option.value = supir[j];
-                  option.text = supir[j];
-               }
+               option.value = supir[j];
+               option.text = supir[j];
                ele.appendChild(option);
             }
+            var option = document.createElement('option');
+            option.setAttribute('selected','true');
+            option.setAttribute('disabled', 'true');
+            option.setAttribute('hidden', 'true');
+            ele.appendChild(option);
             td.appendChild(ele);
          }
       }
@@ -251,5 +249,8 @@ function kembali(id){
 window.onclick = function(event) {
    if (event.target == document.getElementById("modal")) {
       modal.style.display = "none";
+   }
+   else if (event.target == document.getElementById("modalDELETE")) {
+      modalDELETE.style.display = "none";
    }
 }

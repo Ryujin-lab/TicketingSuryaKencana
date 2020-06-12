@@ -238,22 +238,47 @@ table.kursi tr td{
     background-color : orangered;
  }
  
- @-webkit-keyframes slideIn {
-    from {bottom: -300px; opacity: 0} 
-    to {bottom: 0; opacity: 1}
-  }
-  
-  @keyframes slideIn {
-    from {bottom: -300px; opacity: 0}
-    to {bottom: 0; opacity: 1}
-  }
-  
-  @-webkit-keyframes fadeIn {
-    from {opacity: 0} 
-    to {opacity: 1}
-  }
-  
-  @keyframes fadeIn {
-    from {opacity: 0} 
-    to {opacity: 1}
-  }
+@-webkit-keyframes slideIn {
+   from {bottom: -300px; opacity: 0} 
+   to {bottom: 0; opacity: 1}
+}
+
+@keyframes slideIn {
+   from {bottom: -300px; opacity: 0}
+   to {bottom: 0; opacity: 1}
+}
+
+@-webkit-keyframes fadeIn {
+   from {opacity: 0} 
+   to {opacity: 1}
+}
+
+@keyframes fadeIn {
+   from {opacity: 0} 
+   to {opacity: 1}
+}
+
+.rn {
+   float : right;
+}
+
+.rn a{
+   float : left;
+   display: block;
+   background-color : rgb(26, 100, 230);
+   border  : 1px solid rgb(26, 100, 230, 0.6);
+   padding : 10px;
+   margin-top : 10px;
+   margin-right: 10px;
+   text-decoration: none;
+   color : black;
+}
+
+.rn a:hover{
+   background-color : rgb(26, 100, 230, 0.8);
+   transition:0.2s;
+}
+
+.profiltabel tr td{
+   border : 1px solid black;
+}

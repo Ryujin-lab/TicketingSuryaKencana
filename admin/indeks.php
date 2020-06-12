@@ -1,12 +1,23 @@
 <!DOCTYPE html>
 <?php
-   if(!isset($_GET['halaman'])){
-      $halaman = "manajemen-bus";
+   session_start();
+   if (isset($_SESSION["username"])){
+      if(!isset($_GET['halaman'])){
+         $halaman = "manajemen-bus";
+      }
+      else {
+         $halaman = $_GET['halaman']; 
+      }
    }
-   else {
-      $halaman = $_GET['halaman']; 
+
+   else{
+      header("Location:login.php");
    }
-   
+
+   if (isset($_GET['logout'])){
+      session_destroy();
+      header("Location:login.php");
+   }
 ?>
 <html>
 <head>
@@ -16,6 +27,12 @@
 
    <body>
       <img src="../img/logo.png" style="height: 50px; margin: 5px; ">
+      <form class= "rn" method="get">
+         <a type="a"
+            href="indeks.php?halaman=profil"
+         >ADMIN : <?= $_SESSION["username"] ?> </a>
+         <a type="submit" name = "logout">LOGOUT</a>
+      </form>
       <div class="topnav">
          <a href="indeks.php?halaman=manajemen-bus" class="inactive" id="bus">Manajemen Bus</a>
          <a href="indeks.php?halaman=manajemen-supir" class="inactive" id="supir">Manajemen Supir</a>
@@ -67,6 +84,10 @@
                document.getElementById("Bantuan").className = "active";
             </script>
             ';
+         }
+
+         else if ($halaman == "profil"  ){
+            include 'profil.php';
          }
          
       ?>
