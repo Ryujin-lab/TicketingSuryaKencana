@@ -13,7 +13,7 @@
          <p>Lakukan pembayaran paling telat dua jam dari sekarang atau pemesanan akan dibatalkan secara otomatis</p>
          <div class="uang">
             <a style="color:rgb(26,100,230); font-size:20px">pembayaran sebesar</a><br>
-            <a>Rp. <?= $_GET["totaltiket"]?></a>
+            <a>Rp. <?= $_SESSION["harga"]?></a>
          </div>
          <br><br>
          <a> nomor rekening transfer: </a><br>
@@ -21,9 +21,6 @@
             0645172160 / BNI
          </div>
          <br>
-         <div class="uang">
-            0645172160 / BRI
-         </div>
          <br>
          <br>
          <form>

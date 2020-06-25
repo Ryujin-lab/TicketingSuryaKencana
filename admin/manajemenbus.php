@@ -43,27 +43,6 @@
          $rowsupir = mysqli_query($conn, "select * from supir where nama_supir ='$suppir' ");
          $r = mysqli_fetch_assoc($rowsupir)["id_supir"];
 
-         for ($j = 0; $j<45; $j++){
-            $a = $id_bis;
-            $b = $id_jadwal."-".($j+1);
-            $c = $j+1;
-            $d = $tanggal_berangkat;
-            mysqli_query($conn, "INSERT INTO bangku
-            (
-               id_bis,	
-               id_bangku, 	
-               no_bangku,	
-               tanggal_valid,
-               keterangan
-            ) 
-               values
-            (
-               '$a', '$b', '$c', '$d', 'kosong'
-            )
-            ");
-            
-         }
-
          mysqli_query($conn, "INSERT INTO menjadwalkan VALUES
             (
             '$id_jadwal',
@@ -77,6 +56,31 @@
             '$harga_paket',
             '$r' )
          ");
+
+         for ($j = 0; $j<45; $j++){
+            $a = $id_bis;
+            $b = $id_jadwal."-".($j+1);
+            $c = $j+1;
+            $d = $tanggal_berangkat;
+            mysqli_query($conn, "INSERT INTO bangku (
+               id_bis,	
+               id_bangku,
+               no_bangku,
+               id_jadwal,
+               tanggal_valid,
+               keterangan
+            ) 
+               values
+            (
+               '$a', 
+               '$b',
+               '$c', 
+               '$id_jadwal',
+               '$d', 
+               'kosong'
+            )
+            ");
+         }
          
       }
 

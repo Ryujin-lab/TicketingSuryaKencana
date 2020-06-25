@@ -25,9 +25,8 @@
 <html>
 <head>
    <link rel="stylesheet" href="css/style.css">
-      <script src="js/script.js"></script>
-   </head>
-
+   <script src="js/script.js"></script>
+</head>
    <body>
       <img src="../img/logo.png" style="height: 50px; margin: 5px; ">
       <form class= "rn" method="get">

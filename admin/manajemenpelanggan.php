@@ -20,11 +20,11 @@ $jadwal = mysqli_query($conn, "select * from menjadwalkan order by tanggal_beran
             </tr>
 
             <?php while ( $val = mysqli_fetch_assoc($jadwal) ):
-               $strbis = $val["id_bis"];
+               $strbis = $val["id_jadwal"];
                $strsupir = $val["id_supir"];
-               $dipesan =  mysqli_fetch_assoc (mysqli_query($conn, "select count(keterangan) as jumlah from bangku where id_bis = '$strbis' and keterangan ='dipesan' " ) )["jumlah"];
-               $dibayar =  mysqli_fetch_assoc (mysqli_query($conn, "select count(keterangan) as jumlah from bangku where id_bis = '$strbis' and keterangan ='dibayar' " ) )["jumlah"];
-               $kosong =  mysqli_fetch_assoc (mysqli_query($conn, "select count(keterangan) as jumlah from bangku where id_bis = '$strbis' and keterangan ='kosong' " ) ) ["jumlah"];
+               $dipesan =  mysqli_fetch_assoc (mysqli_query($conn, "select count(keterangan) as jumlah from bangku where id_jadwal = '$strbis' and keterangan ='dipesan' " ) )["jumlah"];
+               $dibayar =  mysqli_fetch_assoc (mysqli_query($conn, "select count(keterangan) as jumlah from bangku where id_jadwal = '$strbis' and keterangan ='dibayar' " ) )["jumlah"];
+               $kosong =  mysqli_fetch_assoc (mysqli_query($conn, "select count(keterangan) as jumlah from bangku where id_jadwal = '$strbis' and keterangan ='kosong' " ) ) ["jumlah"];
                $supir = mysqli_fetch_assoc (mysqli_query($conn, "select * from supir where id_supir = '$strsupir'"))["nama_supir"];
             ?>
             <tr>

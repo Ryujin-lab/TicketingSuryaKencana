@@ -12,7 +12,11 @@
          if (password_verify($password, $row["password"])){
             $_SESSION["username"] = $row["username"];
             $_SESSION["id"] = $row["id_admin"];
-            header ("Location: indeks.php");
+            echo"
+            <script>
+               window.location.href = 'indeks.php';
+            </script>
+            ";
          }
 
          else{

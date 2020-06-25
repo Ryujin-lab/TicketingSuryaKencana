@@ -2,13 +2,11 @@
    <table class="layanan">
       <tr>
          <td colspan="2" style="border:none;">
-            Tentang Kami:
             PO. Surya Kencana merupakan perusahaan penyedia layanan transportasi umum berupa bus atar daerah
             Melayanani pelanggan sampai di tujuan
             Mengantarkan paket titipan
-            The time is @DateTime.Now
          </td>
-         <td rowspan="3" style="width:50%; padding-left:20%; padding-right:20%; border:none;">ini gambar</td>
+         <!-- <td rowspan="3" style="width:50%; padding-left:20%; padding-right:20%; border:none;"></td> -->
       </tr>
       <tr>
          <td><img src="../img/1.svg" id="center"><br>

@@ -18,7 +18,6 @@ else {
       
       if ( mysqli_num_rows( $res ) === 1) {
          $tabel = mysqli_fetch_assoc($res);
-         var_dump ($tabel);
          if ( password_verify ($password,  $tabel['password_p'] ) ){
             $_SESSION['idp'] = $tabel['id_pelanggan'];
             $_SESSION['emailp'] = $tabel['email_p'];

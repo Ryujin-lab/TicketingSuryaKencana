@@ -26,12 +26,4 @@ $bis= array (  array("ac01","bali", "mataram", "01-01-2020 15:00", array_count_v
                array("ac08", "bandung", "jakarta", "02-01-2020 20:00", array_count_values($bangku[3])["siap"], $bangku[3]),
                array("ac09", "bima", "jakarta", "02-01-2020 15:00", array_count_values($bangku[3])["siap"], $bangku[3]),
             );
-$asal = array();
-$tujuan = array();
-for ($i = 0; $i<count($bis); $i++){
-   $asal[] = $bis[$i][1];
-   $tujuan[] = $bis[$i][2];
-}
-$asal = array_unique($asal);
-$tujuan = array_unique($tujuan);
 ?>

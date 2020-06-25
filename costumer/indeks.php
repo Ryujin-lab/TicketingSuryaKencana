@@ -1,11 +1,25 @@
 <!DOCTYPE html>
 <?php
-
+   session_start();
+   
    if(!isset($_GET['halaman'])){
       $halaman = "indeks";
+      if (isset($_GET["logout"])){
+         session_destroy();
+         echo"
+         <script>
+            window.location.href = 'login.php';
+         </script>
+         ";
+      }
    }
    else {
-      $halaman = $_GET['halaman']; 
+      if (isset($_POST["halaman"])){
+         $halaman = $_POST['halaman'];
+      }
+      else{
+         $halaman = $_GET['halaman']; 
+      }
    }
    
 ?>
@@ -17,11 +31,9 @@
 
    <body>
       <img src="../img/logo.png" style="height: 50px; margin: 5px; ">
-      <div class="rightnav">
-      <a href="login.php">Login</a>
-      <a href = "signup.php"> Daftar</a>
-
-      </div>
+      <form class="rightnav" method="get">
+      <button type = submit name = "logout">Logout</button>
+      </form>
       <div class="topnav">
          <a href="indeks.php?halaman=indeks" class="inactive"  id="Beranda">Beranda</a>
          <a href="indeks.php?halaman=pesan-tiket" class="inactive" id="PesanTiket">Pesan Tiket</a>

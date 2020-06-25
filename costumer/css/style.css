@@ -26,7 +26,7 @@ object{
    float: right;
 }
 
-.rightnav a{
+.rightnav button{
    float : right;
    display: block;
    color: rgb(26, 100, 230);
@@ -438,6 +438,7 @@ table{
 .detailall tr td{
    border : 1px solid rgb(26, 101, 230);
    padding : 3px;
+   overflow: hidden;
 }
 
 .konfirmasiinput{
